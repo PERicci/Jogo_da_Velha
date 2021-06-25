@@ -4,12 +4,15 @@
     font-size: calc(10pt + 1vw);
 }
 
-
 .hidden {
     overflow: hidden;
     height: 0;
     width: 0;
-    margin: 0.5rem;
+    margin: 0rem;
+}
+
+.hiddenAll {
+    display: none;
 }
 
 body {
@@ -20,7 +23,7 @@ body {
 }
 
 #title {
-    margin: auto;
+    margin: 1rem auto 0;
     width: 15rem;
     margin-bottom: 1rem;
 }
