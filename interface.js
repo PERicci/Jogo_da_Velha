@@ -10,23 +10,24 @@ function handleClick(event){
     let square = event.target;
     let position = square.id;
 
-    handleMove(position);
-    updateSquares();
+    if (handleMove(position)) {
+        let winner = ''
+        setTimeout(() => {
+            if (playerTime == 0) {
+                winner = 'Rebel';
+                alert(`The game is over! Congratulations ${winner}`);
+            } else {
+                winner = 'Imperial';
+                alert(`The game is over! Congratulations ${winner}`);
+            }
+        }, 10) 
+    };
+
+    updateSquare(position);
 }
 
-function updateSquares(){
-    let squares = document.querySelectorAll(".square");
-
-    squares.forEach((square) => {
-        let position = square.id;
-        let symbol = board[position];
-
-        if (symbol != '') {
-            square.className = `square ${symbol}`
-        }
-
-        console.log('position', position);
-        console.log('symbol', symbol);
-        console.log('square', square);
-})
+function updateSquare(position) {
+    let square = document.getElementById(position.toString());
+    let symbol = board[position];
+    square.className = `square ${symbol}`
 }
